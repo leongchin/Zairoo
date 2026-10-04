@@ -196,6 +196,10 @@
 
   /* brand assets */
   .logo img{height:30px;width:auto}
+  .nav-tag{font-family:var(--sans);font-size:14px;font-weight:400;color:var(--muted);border-left:1px solid var(--line);padding-left:14px;margin-left:6px;white-space:nowrap}
+  .nav-tag em{font-style:normal;font-weight:700;color:var(--violet)}
+  .who-label{text-align:center;font-size:14px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--violet);margin:0 0 12px}
+  .foot-tag{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--ink);margin:0 0 14px}
   .foot-logo{height:27px;width:auto;margin:0 auto 12px;opacity:.9}
   .ch-l{display:flex;align-items:center;gap:8px}
   .ch-l img{width:30px;height:30px;border-radius:50%;background:#fff}
@@ -286,6 +290,7 @@
     .testi .video{aspect-ratio:16/10}
     .sticky{display:block}
     .nav .btn-violet{display:none}
+    .nav-tag{display:none}
   }
   @media (max-width:520px){
     body{font-size:16px}
@@ -304,7 +309,7 @@
 
 <header>
   <div class="wrap nav">
-    <a class="logo" href="#top" aria-label="Zairoo Maths home"><img src="https://www.zairoo.ai/assets/logo.svg" alt="Zairoo" width="122" height="30"><span class="tag">Maths</span></a>
+    <a class="logo" href="#top" aria-label="Zairoo home"><img src="https://www.zairoo.ai/assets/logo.svg" alt="Zairoo" width="122" height="30"><span class="nav-tag">Most AI tools give answers. <em>We build thinkers.</em></span></a>
     <a class="btn btn-violet" href="#signup">Start my child learnings for free</a>
   </div>
 </header>
@@ -316,7 +321,7 @@
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <span class="eyebrow">For parents and guardians who feel their child is behind in maths</span>
+        <span class="eyebrow">For parents who feel their child is behind in maths</span>
         <h1>How To Give Your Child A <em>Head start In Math</em> That Does Real Learnings Using AI. Fun, engaging and Without Stress</h1>
         <p class="sub">AI learnings empowering growth by guiding with hints and not answers, your child absorb better when it's fun and interactive.</p>
         <div class="offer">
@@ -385,7 +390,8 @@
 <!-- WHO WE ARE -->
 <section class="section who" id="who">
   <div class="wrap">
-    <h2>Who <em>we are</em></h2>
+    <p class="who-label">Who we are</p>
+    <h2>Most AI tools give answers. <em>We build thinkers.</em></h2>
     <p class="section-sub">Zairoo is a Singapore-based AI learning platform for Primary 1 to 6. We bring together former MOE teachers, educators and AI engineers with one belief: children learn best when they are guided to think, not handed the answer.</p>
     <div class="who-grid">
       <div class="who-card"><span class="ico" style="background:var(--lavender);color:var(--violet)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></span><h3>Built in Singapore</h3><p>Designed around the MOE Primary Mathematics syllabus and the way Singapore schools set exam papers.</p></div>
@@ -583,7 +589,7 @@
 </main>
 
 <footer>
-  <div class="wrap"><img class="foot-logo" src="https://www.zairoo.ai/assets/logo.svg" alt="Zairoo" width="110" height="27">Concept landing page by Leong Chin for portfolio purposes. Zairoo is a trademark of its respective owner; this page is not affiliated with or endorsed by Zairoo or Wild Dynasty Pte Ltd.</div>
+  <div class="wrap"><img class="foot-logo" src="https://www.zairoo.ai/assets/logo.svg" alt="Zairoo" width="110" height="27"><p class="foot-tag">Most AI tools give answers. We build thinkers.</p>Concept landing page by Leong Chin for portfolio purposes. Zairoo is a trademark of its respective owner; this page is not affiliated with or endorsed by Zairoo or Wild Dynasty Pte Ltd.</div>
 </footer>
 
 <div class="sticky" id="sticky"><a class="btn btn-yellow" href="#signup">Start my child learnings for free</a></div>
