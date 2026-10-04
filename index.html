@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en-SG">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zairoo Maths | Free 7-Day Learning for Your Child</title>
+<meta name="description" content="AI maths practice for Singapore Primary 1 to 6. Zai guides with hints, not answers. Questions curated by former MOE teachers. Start 7 days free.">
+<meta name="color-scheme" content="light">
+<style>
+  :root{
+    --ink:#292530; --muted:#6b6573; --violet:#8347e0; --violet-dark:#6a33c2; --lavender:#f3edff;
+    --coral:#ff6b6b; --orange:#ff9f43; --line:#e9e5ed; --page:#fcfbfe; --white:#ffffff;
+    --yellow:#ffc83d; --yellow-dark:#f5b400; --green:#1f9d6b;
+    --radius:20px; --shadow:0 10px 30px rgba(41,37,48,.08);
+    --serif:Georgia,"Times New Roman",serif; --sans:"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--page);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  img,svg{max-width:100%;display:block}
+  a{color:var(--violet)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.2;margin:0}
+  h2{font-size:clamp(28px,4vw,40px);text-align:center}
+  h2 em,h1 em{color:var(--violet);font-style:italic}
+  .section{padding:80px 0}
+  .section-sub{max-width:680px;margin:14px auto 0;text-align:center;color:var(--muted)}
+  .eyebrow{display:inline-block;font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--violet);background:var(--lavender);padding:6px 14px;border-radius:100px}
+
+  /* concept notice */
+  .notice{background:var(--ink);color:#e9e5ed;font-size:13px;text-align:center;padding:8px 20px}
+  .notice strong{color:var(--yellow)}
+
+  /* header */
+  header{position:sticky;top:0;z-index:20;background:rgba(252,251,254,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-weight:700;font-size:26px;color:var(--ink);text-decoration:none}
+  .logo-mark{width:30px;height:30px;border-radius:50%;background:var(--violet);display:grid;place-items:center;color:#fff;font-family:var(--sans);font-size:15px;font-weight:700}
+  .logo span.tag{font-family:var(--sans);font-size:13px;font-weight:700;color:var(--violet);background:var(--lavender);padding:3px 9px;border-radius:100px;margin-left:4px}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;font-family:var(--sans);font-weight:700;text-decoration:none;border-radius:100px;transition:transform .15s ease, box-shadow .15s ease, background .15s ease}
+  .btn-yellow{background:var(--violet);color:#fff;font-size:19px;padding:18px 34px;box-shadow:0 8px 0 #5b2bb0,0 14px 30px rgba(131,71,224,.35)}
+  .btn-yellow:hover{background:#9159ea}
+  .btn-yellow:hover{transform:translateY(-2px)}
+  .btn-yellow:active{transform:translateY(4px);box-shadow:0 4px 0 #5b2bb0}
+  .btn-yellow small{font-weight:400;font-size:15px}
+  .btn-violet{background:var(--violet);color:#fff;font-size:15px;padding:11px 20px}
+  .btn-violet:hover{background:var(--violet-dark)}
+  .btn:focus-visible,.tab:focus-visible,input:focus-visible,select:focus-visible,.dot:focus-visible,summary:focus-visible{outline:3px solid var(--violet);outline-offset:3px}
+
+  /* hero */
+  .hero{padding:56px 0 40px;background:radial-gradient(1000px 500px at 85% 0%,#efe6ff 0%,rgba(239,230,255,0) 60%)}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  .hero h1{font-size:clamp(32px,4.6vw,52px);margin:18px 0 14px}
+  .hero .lead{font-size:20px;color:var(--ink);margin:0 0 10px;font-weight:700}
+  .hero .sub{color:var(--muted);margin:0 0 18px;max-width:560px}
+  .offer{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px dashed var(--violet);border-radius:14px;padding:14px 16px;margin:0 0 26px;max-width:560px}
+  .offer svg{flex:none;width:26px;height:26px;color:var(--violet);margin-top:2px}
+  .offer p{margin:0;font-size:16px}
+  .proof{display:flex;align-items:center;gap:10px;margin-top:22px;font-size:15px;color:var(--muted);flex-wrap:wrap}
+  .stars{color:var(--yellow-dark);letter-spacing:2px;font-size:18px}
+  .avatars{display:flex}
+  .avatars span{width:32px;height:32px;border-radius:50%;border:2px solid #fff;margin-left:-8px;display:grid;place-items:center;font-size:12px;font-weight:700;color:#fff}
+  .avatars span:first-child{margin-left:0}
+
+  /* chat mock */
+  .chat{background:#fff;border-radius:24px;box-shadow:0 24px 60px rgba(131,71,224,.18);border:1px solid var(--line);overflow:hidden}
+  .chat-head{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:var(--lavender);font-size:14px;font-weight:700;color:var(--violet)}
+  .chat-head .pill{background:#fff;padding:4px 10px;border-radius:100px;color:var(--ink);font-weight:400}
+  .chat-body{padding:18px;display:flex;flex-direction:column;gap:12px}
+  .q{background:var(--page);border:1px solid var(--line);border-radius:14px;padding:14px;font-size:15px}
+  .bubble{max-width:85%;padding:11px 14px;border-radius:16px;font-size:15px;line-height:1.45;opacity:0;transform:translateY(8px);animation:pop .5s ease forwards}
+  .bubble.zai{background:var(--violet);color:#fff;border-bottom-left-radius:4px;align-self:flex-start}
+  .bubble.kid{background:#fff4dc;color:var(--ink);border-bottom-right-radius:4px;align-self:flex-end}
+  .bubble .who{display:block;font-size:12px;font-weight:700;opacity:.8;margin-bottom:2px}
+  .bubble:nth-child(2){animation-delay:.4s}.bubble:nth-child(3){animation-delay:1.2s}.bubble:nth-child(4){animation-delay:2s}.bubble:nth-child(5){animation-delay:2.8s}
+  @keyframes pop{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.bubble{animation:none;opacity:1;transform:none}}
+  .chat-foot{border-top:1px solid var(--line);padding:12px 18px;font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px}
+  .chat-foot b{color:var(--green)}
+
+  /* trust row */
+  .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+  .trust div{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+  .ico{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center}
+  .ico svg{width:24px;height:24px}
+  .trust b{display:block;font-size:16px}
+  .trust span{font-size:14px;color:var(--muted)}
+
+  /* media */
+  .media{padding:36px 0 8px;text-align:center}
+  .media p{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+  .logos{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
+  .logos div{width:150px;height:52px;border:1px dashed #cfc8d8;border-radius:10px;display:grid;place-items:center;color:#a39bad;font-size:13px;background:#fff}
+
+  /* video */
+  .video{position:relative;max-width:860px;margin:36px auto 0;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;background:linear-gradient(135deg,#8347e0,#5b2bb0);box-shadow:var(--shadow);display:grid;place-items:center;color:#fff;cursor:pointer;border:0;width:100%;font:inherit}
+  .video .play{width:84px;height:84px;border-radius:50%;background:var(--yellow);display:grid;place-items:center;box-shadow:0 0 0 14px rgba(255,200,61,.25);transition:transform .2s}
+  .video:hover .play{transform:scale(1.07)}
+  .video .play svg{width:30px;height:30px;margin-left:5px;color:var(--ink)}
+  .video .vlabel{position:absolute;left:22px;bottom:18px;font-size:14px;background:rgba(0,0,0,.25);padding:6px 12px;border-radius:100px}
+  .video .vdur{position:absolute;right:22px;bottom:18px;font-size:14px;background:rgba(0,0,0,.25);padding:6px 12px;border-radius:100px}
+  .video-note{max-width:720px;margin:22px auto 0;text-align:center;font-size:18px}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+  .step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .step .n{width:36px;height:36px;border-radius:50%;background:var(--violet);color:#fff;display:grid;place-items:center;font-weight:700;margin-bottom:12px}
+  .step h3{font-size:20px;margin-bottom:6px}
+  .step p{margin:0;color:var(--muted);font-size:16px}
+
+  /* who we are */
+  .who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+  .who-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+  .who-card .ico{margin-bottom:14px}
+  .who-card h3{font-size:20px;margin-bottom:6px}
+  .who-card p{margin:0;color:var(--muted);font-size:16px}
+  @media (max-width:900px){.who-grid{grid-template-columns:1fr}}
+
+  /* curriculum tabs */
+  .learn{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:36px 0 28px}
+  .tab{border:2px solid var(--line);background:#fff;color:var(--ink);font:700 17px var(--sans);padding:12px 22px;border-radius:14px;cursor:pointer;min-width:76px;transition:all .15s}
+  .tab:hover{border-color:var(--violet)}
+  .tab[aria-selected="true"]{background:var(--violet);border-color:var(--violet);color:#fff;box-shadow:0 8px 20px rgba(131,71,224,.3)}
+  .panel{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+  .panel h3{font-size:26px;margin-bottom:6px}
+  .panel .tagline{color:var(--violet);font-weight:700;margin:0 0 14px}
+  .panel ul{list-style:none;padding:0;margin:0 0 18px}
+  .panel li{position:relative;padding-left:30px;margin-bottom:9px}
+  .panel li::before{content:"";position:absolute;left:0;top:6px;width:18px;height:18px;border-radius:50%;background:var(--lavender) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238347e0' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/11px no-repeat}
+  .worksheet{background:var(--page);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+  .worksheet .ws-top{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:12px}
+  .worksheet .ws-top b{color:var(--violet)}
+  .worksheet .ws-q{font-size:17px;margin:0 0 12px}
+  .worksheet .ws-fig{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;place-items:center;min-height:150px;margin-bottom:12px}
+  .worksheet .ws-hint{display:flex;gap:10px;align-items:flex-start;background:var(--violet);color:#fff;border-radius:14px;padding:12px 14px;font-size:15px}
+  .worksheet .ws-hint .av{flex:none;width:28px;height:28px;border-radius:50%;background:var(--yellow);color:var(--ink);display:grid;place-items:center;font-weight:700;font-size:13px}
+  .syllabus-note{font-size:13px;color:var(--muted);text-align:center;margin-top:26px}
+
+  /* testimonials */
+  .testi{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;margin-top:40px}
+  .testi .video{margin:0;aspect-ratio:4/3;max-width:none;background:linear-gradient(160deg,#ff9f43,#ff6b6b)}
+  .review{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow);min-height:330px;display:flex;flex-direction:column}
+  .review blockquote{margin:12px 0 18px;font-family:var(--serif);font-size:22px;line-height:1.45}
+  .review .by{display:flex;align-items:center;gap:12px;margin-top:auto}
+  .review .by .ph{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700}
+  .review .by b{display:block}
+  .review .by span{font-size:14px;color:var(--muted)}
+  .dots{display:flex;gap:8px;margin-top:18px}
+  .dot{width:12px;height:12px;border-radius:50%;border:0;background:var(--line);cursor:pointer;padding:0}
+  .dot[aria-current="true"]{background:var(--violet);width:30px;border-radius:100px}
+  .sample{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--coral);border:1px solid var(--coral);border-radius:100px;padding:2px 8px}
+
+  /* credentials */
+  .creds{background:var(--lavender)}
+  .cred-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+  .cred{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:16px}
+  .cred-head{display:flex;gap:16px;align-items:center}
+  .thumb{flex:none;width:84px;height:84px;border-radius:50%;overflow:hidden;border:4px solid var(--lavender)}
+  .cred-head h3{font-size:21px}
+  .cred-head p{margin:2px 0 0;font-size:14px;color:var(--muted)}
+  .badge-line{display:inline-flex;gap:6px;align-items:center;font-size:13px;font-weight:700;color:var(--violet);background:var(--lavender);border-radius:100px;padding:4px 10px;margin-top:6px}
+  .cred p.quote{margin:0;font-size:16px;color:var(--ink)}
+
+  /* faq */
+  .faq{max-width:780px;margin:36px auto 0}
+  details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:0 22px;margin-bottom:12px}
+  summary{cursor:pointer;list-style:none;font-weight:700;padding:18px 0;display:flex;justify-content:space-between;gap:12px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:22px;color:var(--violet);line-height:1}
+  details[open] summary::after{content:"\2212"}
+  details p{margin:0 0 18px;color:var(--muted)}
+
+  /* signup */
+  .signup{background:linear-gradient(160deg,#8347e0 0%,#5b2bb0 100%);color:#fff}
+  .signup-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .signup h2{text-align:left;color:#fff}
+  .signup h2 em{color:var(--yellow)}
+  .signup .perks{list-style:none;padding:0;margin:22px 0 0}
+  .signup .perks li{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+  .signup .perks svg{flex:none;width:22px;height:22px;color:var(--yellow);margin-top:3px}
+  form{background:#fff;color:var(--ink);border-radius:24px;padding:30px;box-shadow:0 30px 60px rgba(0,0,0,.25)}
+  form h3{font-size:24px;margin-bottom:4px}
+  form .fsub{margin:0 0 18px;color:var(--muted);font-size:15px}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:14px;font-weight:700;margin-bottom:6px}
+  .field input,.field select{width:100%;font:16px var(--sans);padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--page);color:var(--ink)}
+  .field input:focus,.field select:focus{border-color:var(--violet);outline:none;background:#fff}
+  .phone{display:flex;gap:8px}
+  .phone span{display:grid;place-items:center;padding:0 12px;border:1.5px solid var(--line);border-radius:12px;background:var(--lavender);font-weight:700;font-size:15px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .consent{display:flex;gap:10px;font-size:13px;color:var(--muted);margin:6px 0 18px;align-items:flex-start}
+  .consent input{margin-top:3px;width:18px;height:18px;accent-color:var(--violet);flex:none}
+  form .btn-yellow{width:100%;font-size:18px}
+  .err{color:#c0392b;font-size:13px;margin-top:4px;display:none}
+  .field.invalid input,.field.invalid select{border-color:#c0392b}
+  .field.invalid .err{display:block}
+  .success{display:none;text-align:center;padding:30px 10px}
+  .success .tick{width:72px;height:72px;border-radius:50%;background:#e6f6ee;color:var(--green);display:grid;place-items:center;margin:0 auto 14px}
+  .success .tick svg{width:36px;height:36px}
+  .fine{font-size:13px;color:var(--muted);text-align:center;margin:12px 0 0}
+
+  footer{padding:36px 0 110px;text-align:center;font-size:13px;color:var(--muted)}
+
+  /* sticky mobile cta */
+  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);padding:12px 16px;display:none;box-shadow:0 -8px 24px rgba(41,37,48,.08);transform:translateY(110%);transition:transform .25s}
+  .sticky.show{transform:none}
+  .sticky .btn-yellow{width:100%;font-size:17px;padding:15px 20px;box-shadow:0 5px 0 #5b2bb0}
+
+  @media (max-width:900px){
+    .hero-grid,.panel,.testi,.signup-grid,.cred-grid{grid-template-columns:1fr}
+    .trust,.steps{grid-template-columns:1fr}
+    .section{padding:60px 0}
+    .testi .video{aspect-ratio:16/10}
+    .sticky{display:block}
+    .nav .btn-violet{display:none}
+  }
+  @media (max-width:520px){
+    body{font-size:16px}
+    .btn-yellow{font-size:17px;padding:16px 22px;width:100%;flex-direction:column;gap:2px}
+    .row2{grid-template-columns:1fr}
+    .logos div{width:46%}
+    .tabs{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+    .tab{padding:10px 0;min-width:0;font-size:15px}
+    form{padding:22px}
+    .review blockquote{font-size:19px}
+  }
+</style>
+</head>
+<body>
+
+<div class="notice" role="note"><strong>Concept page</strong> built for portfolio and pitch purposes. Not affiliated with or endorsed by Zairoo. Figures, logos and testimonials are placeholders.</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="Zairoo Maths home"><span class="logo-mark">z</span>zairoo<span class="tag">Maths</span></a>
+    <a class="btn btn-violet" href="#signup">Start my child learnings for free</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">For parents and guardians who feel their child is behind in maths</span>
+        <h1>How To Give Your Child A <em>Head start In Math</em> That Does Real Learnings Using AI. Fun, engaging and Without Stress</h1>
+        <p class="sub">AI learnings empowering growth by guiding with hints and not answers, your child absorb better when it's fun and interactive.</p>
+        <div class="offer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M7.5 8a2.5 2.5 0 1 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 1 1 0 5"/></svg>
+          <p><b>Free 7-day learning for one child.</b> Questions curated by former MOE teachers and educators.</p>
+        </div>
+        <a class="btn btn-yellow" href="#signup">Start my child learnings for free</a>
+        <div class="proof">
+          <div class="avatars" aria-hidden="true"><span style="background:#8347e0">JL</span><span style="background:#ff6b6b">AS</span><span style="background:#ff9f43">KT</span><span style="background:#1f9d6b">RN</span></div>
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <span><b style="color:var(--ink)">4.9/5 stars review</b> &middot; <b style="color:var(--ink)">987 children</b> benefitted</span>
+        </div>
+      </div>
+
+      <div class="chat" aria-label="Example of Zai guiding a child with hints">
+        <div class="chat-head"><span>Primary 4 &middot; Fractions</span><span class="pill">Tutor mode</span></div>
+        <div class="chat-body">
+          <div class="q">Mei Ling ate <b>3/8</b> of a pizza. Her brother ate <b>1/4</b> of it. What fraction of the pizza is left?</div>
+          <div class="bubble kid"><span class="who">Child</span>I don't know where to start.</div>
+          <div class="bubble zai"><span class="who">Zai</span>Let's try together. Can you write 1/4 in eighths, like the other fraction?</div>
+          <div class="bubble kid"><span class="who">Child</span>2/8!</div>
+          <div class="bubble zai"><span class="who">Zai</span>Great. So how much did they eat altogether, and what's left of the whole pizza?</div>
+        </div>
+        <div class="chat-foot"><b>&#10003;</b> Zai never gives the answer. Your child finds it.</div>
+      </div>
+    </div>
+
+    <div class="trust">
+      <div><span class="ico" style="background:#fff4dc;color:#c98a00"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 15l2 2 4-4"/></svg></span><p style="margin:0"><b>Free 7-day learning</b><span>Full access for one child</span></p></div>
+      <div><span class="ico" style="background:var(--lavender);color:var(--violet)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></span><p style="margin:0"><b>Real learning, no hype</b><span>Hints that build thinking skills</span></p></div>
+      <div><span class="ico" style="background:#ffeceb;color:var(--coral)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span><p style="margin:0"><b>MOE curated</b><span>By former MOE teachers and educators</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA -->
+<section class="media" aria-label="As featured in">
+  <div class="wrap">
+    <p>As featured in</p>
+    <div class="logos"><!-- Replace with real media logos only once coverage exists -->
+      <div>Media logo</div><div>Media logo</div><div>Media logo</div><div>Media logo</div><div>Media logo</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div class="wrap">
+    <h2>How <em>Zairoo</em> works</h2>
+    <!-- Replace this button with a YouTube/Vimeo iframe embed -->
+    <button class="video" type="button" aria-label="Play video: How Zairoo works" data-video>
+      <span class="play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg></span>
+      <span class="vlabel">How Zairoo works</span><span class="vdur">1:30</span>
+    </button>
+    <p class="video-note">This is how your child learns, through AI guidance. Advanced learnings by breaking down complex questions to prepare them for real-world applications</p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Practise</h3><p>Your child works on MOE-aligned questions in the style of top-school exam papers.</p></div>
+      <div class="step"><div class="n">2</div><h3>Ask Zai for a hint</h3><p>Stuck? Zai asks a guiding question instead of giving away the answer.</p></div>
+      <div class="step"><div class="n">3</div><h3>See the progress</h3><p>You see which topics are strong and which need more practice.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE ARE -->
+<section class="section who" id="who">
+  <div class="wrap">
+    <h2>Who <em>we are</em></h2>
+    <p class="section-sub">Zairoo is a Singapore-based AI learning platform for Primary 1 to 6. We bring together former MOE teachers, educators and AI engineers with one belief: children learn best when they are guided to think, not handed the answer.</p>
+    <div class="who-grid">
+      <div class="who-card"><span class="ico" style="background:var(--lavender);color:var(--violet)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></span><h3>Built in Singapore</h3><p>Designed around the MOE Primary Mathematics syllabus and the way Singapore schools set exam papers.</p></div>
+      <div class="who-card"><span class="ico" style="background:#ffeceb;color:var(--coral)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4"/><path d="M2 21v-1a7 7 0 0 1 14 0v1M16 3.5a4 4 0 0 1 0 7M22 21v-1a7 7 0 0 0-4-6.3"/></svg></span><h3>Educators and engineers</h3><p>Former MOE teachers curate every question. Our engineers build the AI that guides your child through it.</p></div>
+      <div class="who-card"><span class="ico" style="background:#fff1e3;color:#d97a1c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6M12 15h.01"/></svg></span><h3>Hints, not answers</h3><p>Zai, our learning companion, asks the next right question so your child builds real understanding.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOUR CHILD WILL LEARN -->
+<section class="section learn" id="learn">
+  <div class="wrap">
+    <h2>What your child <em>will learn</em></h2>
+    <p class="section-sub">Pick your child's level to see the topics covered and a sample question with Zai's hint.</p>
+    <div class="tabs" role="tablist" aria-label="Primary level">
+      <button class="tab" role="tab" id="tab-1" aria-controls="panel" aria-selected="false" tabindex="-1" data-level="1">P1</button>
+      <button class="tab" role="tab" id="tab-2" aria-controls="panel" aria-selected="false" tabindex="-1" data-level="2">P2</button>
+      <button class="tab" role="tab" id="tab-3" aria-controls="panel" aria-selected="false" tabindex="-1" data-level="3">P3</button>
+      <button class="tab" role="tab" id="tab-4" aria-controls="panel" aria-selected="true" tabindex="0" data-level="4">P4</button>
+      <button class="tab" role="tab" id="tab-5" aria-controls="panel" aria-selected="false" tabindex="-1" data-level="5">P5</button>
+      <button class="tab" role="tab" id="tab-6" aria-controls="panel" aria-selected="false" tabindex="-1" data-level="6">P6</button>
+    </div>
+    <div class="panel" id="panel" role="tabpanel" aria-labelledby="tab-4">
+      <div>
+        <h3 id="lv-title"></h3>
+        <p class="tagline" id="lv-tag"></p>
+        <ul id="lv-list"></ul>
+        <a class="btn btn-yellow" href="#signup">Start my child learnings for free</a>
+      </div>
+      <div class="worksheet" aria-live="polite">
+        <div class="ws-top"><span>Sample question</span><b id="ws-level"></b></div>
+        <p class="ws-q" id="ws-q"></p>
+        <div class="ws-fig" id="ws-fig"></div>
+        <div class="ws-hint"><span class="av">Z</span><span id="ws-hint"></span></div>
+      </div>
+    </div>
+    <p class="syllabus-note">Topics follow the MOE Primary Mathematics syllabus. Summary for illustration; the full topic list sits inside the app.</p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="reviews">
+  <div class="wrap">
+    <h2>What <em>parents</em> say</h2>
+    <div class="testi">
+      <!-- Replace with parent video testimonial embed -->
+      <button class="video" type="button" aria-label="Play parent testimonial video" data-video>
+        <span class="play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg></span>
+        <span class="vlabel">Parent story</span><span class="vdur">0:45</span>
+      </button>
+      <div class="review">
+        <div><span class="stars" aria-hidden="true">★★★★★</span> <span class="sample">Sample</span></div>
+        <blockquote id="rv-text"></blockquote>
+        <div class="by"><span class="ph" id="rv-ph"></span><p style="margin:0"><b id="rv-name"></b><span id="rv-meta"></span></p></div>
+        <div class="dots" id="rv-dots" aria-label="Choose review"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="section creds" id="credentials">
+  <div class="wrap">
+    <h2>Trusted by <em>educators</em></h2>
+    <p class="section-sub">The people who teach maths every day explain why hints beat answers.</p>
+    <div class="cred-grid">
+      <article class="cred">
+        <div class="cred-head">
+          <div class="thumb" aria-hidden="true"><svg viewBox="0 0 84 84"><rect width="84" height="84" fill="#f3edff"/><circle cx="42" cy="33" r="15" fill="#c9b3f2"/><path d="M14 84c2-17 14-26 28-26s26 9 28 26z" fill="#8347e0"/><path d="M27 31c0-11 7-17 15-17s15 6 15 17c-3-6-8-8-15-8s-12 2-15 8z" fill="#292530"/></svg></div>
+          <div><h3>Mrs Lim <span class="sample">Sample</span></h3><p>Former MOE primary maths teacher</p><span class="badge-line">19 years' teaching experience</span></div>
+        </div>
+        <p class="quote">"In 19 years of teaching, the children who did best weren't the ones handed answers fastest. They were the ones taught to find the next step. Zai's hints work the way I coached my own classes: ask the right question, then let the child think. The questions follow the MOE syllabus and the style of school exam papers, so practice at home matches what children see in class."</p>
+      </article>
+      <article class="cred">
+        <div class="cred-head">
+          <div class="thumb" aria-hidden="true"><svg viewBox="0 0 84 84"><rect width="84" height="84" fill="#fff1e3"/><circle cx="42" cy="33" r="15" fill="#e8b38a"/><path d="M14 84c2-17 14-26 28-26s26 9 28 26z" fill="#ff9f43"/><path d="M28 28c1-9 7-14 14-14s13 5 14 14c-4-3-9-4-14-4s-10 1-14 4z" fill="#292530"/></svg></div>
+          <div><h3>Mr Raj <span class="sample">Sample</span></h3><p>Founder, primary maths tuition centre</p><span class="badge-line">Uses Zairoo between lessons</span></div>
+        </div>
+        <p class="quote">"My tutors see students once a week. What happens in the other six days decides results. With Zairoo, students practise between lessons and get guided when they're stuck, instead of copying from an answer key. Parents see the progress, and my tutors walk into class knowing exactly which topics to fix."</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <h2>Still have <em>questions?</em></h2>
+    <div class="faq">
+      <details><summary>Is the 7-day learning really free?</summary><p>Yes. Your child gets 7 days of full access. If you don't continue, the account moves to the free Basic plan and you pay nothing.</p></details>
+      <details><summary>Will Zai just give my child the answers?</summary><p>No. Zai works in tutor mode: it asks guiding questions and gives hints so your child works out each step.</p></details>
+      <details><summary>Which syllabus do the questions follow?</summary><p>The Singapore MOE Primary Mathematics syllabus for P1 to P6, with questions in the style of past-year school exam papers, curated by former MOE teachers and educators.</p></details>
+      <details><summary>How much is it after the free 7 days?</summary><p>S$21 per child per month. You can also stay on the free Basic plan with limited papers and hints.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNUP -->
+<section class="section signup" id="signup">
+  <div class="wrap signup-grid">
+    <div>
+      <h2>Give your child a <em>head start</em> this holiday</h2>
+      <p style="opacity:.9;margin:14px 0 0">Use the year-end break to close gaps and get ready for next year's topics, 15 minutes a day.</p>
+      <ul class="perks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>7 days of full access for one child</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Unlimited practice papers and Zai hints</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Weak-topic report sent to you</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>No obligation to continue</li>
+      </ul>
+    </div>
+
+    <form id="form" novalidate>
+      <div id="form-fields">
+        <h3>Start your child's free 7 days</h3>
+        <p class="fsub">Takes under a minute.</p>
+        <div class="field"><label for="name">Parent / guardian name</label><input id="name" name="name" autocomplete="name" required><div class="err">Please enter your name.</div></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required><div class="err">Please enter a valid email.</div></div>
+        <div class="field"><label for="phone">WhatsApp number</label><div class="phone"><span>+65</span><input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="8123 4567" required></div><div class="err">Please enter an 8-digit Singapore number.</div></div>
+        <div class="row2">
+          <div class="field"><label for="child">Child's first name</label><input id="child" name="child" required><div class="err">Please enter a name.</div></div>
+          <div class="field"><label for="level">Level in 2027</label>
+            <select id="level" name="level" required><option value="">Select</option><option>Primary 1</option><option>Primary 2</option><option>Primary 3</option><option>Primary 4</option><option>Primary 5</option><option>Primary 6</option></select>
+            <div class="err">Please choose a level.</div></div>
+        </div>
+        <label class="consent"><input type="checkbox" id="consent" required> I agree to be contacted about my child's learning and accept the privacy policy. We never share your details.</label>
+        <div class="field" id="consent-field" style="margin-top:-12px"><div class="err">Please tick to continue.</div></div>
+        <button class="btn btn-yellow" type="submit">Start my child learnings for free</button>
+        <p class="fine">Demo form: no data is sent from this concept page.</p>
+      </div>
+      <div class="success" id="success" role="status">
+        <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div>
+        <h3>You're in, <span id="ok-name">there</span>!</h3>
+        <p style="color:var(--muted)">Check your email and WhatsApp for your login link. Your child's first paper is ready.</p>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">Concept landing page by Leong Chin for portfolio purposes. Zairoo is a trademark of its respective owner; this page is not affiliated with or endorsed by Zairoo or Wild Dynasty Pte Ltd.</div>
+</footer>
+
+<div class="sticky" id="sticky"><a class="btn btn-yellow" href="#signup">Start my child learnings for free</a></div>
+
+<script>
+(function(){
+  /* ---------- Level data ---------- */
+  var V="#8347e0", L="#f3edff", O="#ff9f43", C="#ff6b6b", I="#292530";
+  function t(x,y,s,o){return '<text x="'+x+'" y="'+y+'" font-family="Helvetica Neue,Arial" font-size="'+(o&&o.size||14)+'" fill="'+(o&&o.fill||I)+'" text-anchor="'+(o&&o.anchor||"middle")+'" font-weight="'+(o&&o.weight||400)+'">'+s+'</text>';}
+  var figs={
+    1: (function(){var s='<svg viewBox="0 0 300 120" width="300" role="img" aria-label="8 stickers and 5 more stickers">';for(var i=0;i<8;i++)s+='<circle cx="'+(25+i*22)+'" cy="45" r="9" fill="'+V+'"/>';for(var j=0;j<5;j++)s+='<circle cx="'+(25+j*22)+'" cy="85" r="9" fill="'+O+'"/>';s+=t(220,50,"8 stickers",{anchor:"start"})+t(150,90,"5 more",{anchor:"start"})+'</svg>';return s;})(),
+    2: '<svg viewBox="0 0 300 110" width="300" role="img" aria-label="Ribbon 45 cm with 18 cm cut off"><rect x="20" y="40" width="260" height="22" rx="6" fill="'+L+'" stroke="'+V+'" stroke-width="2"/><rect x="176" y="40" width="104" height="22" rx="6" fill="'+O+'"/>'+t(150,30,"45 cm")+t(228,85,"18 cm cut off")+t(98,85,"? cm left",{fill:V,weight:700})+'</svg>',
+    3: '<svg viewBox="0 0 300 120" width="300" role="img" aria-label="Bar model: Joe 1 unit, Ben 3 units, total 48"><text x="10" y="38" font-family="Arial" font-size="14" fill="'+I+'">Joe</text><rect x="55" y="22" width="55" height="24" fill="'+L+'" stroke="'+V+'" stroke-width="2"/><text x="10" y="82" font-family="Arial" font-size="14" fill="'+I+'">Ben</text><rect x="55" y="66" width="55" height="24" fill="'+L+'" stroke="'+V+'" stroke-width="2"/><rect x="110" y="66" width="55" height="24" fill="'+L+'" stroke="'+V+'" stroke-width="2"/><rect x="165" y="66" width="55" height="24" fill="'+L+'" stroke="'+V+'" stroke-width="2"/><path d="M235 22 q12 0 12 12 v8 l6 6 l-6 6 v22 q0 12 -12 12" fill="none" stroke="'+O+'" stroke-width="2"/>'+t(275,60,"48",{weight:700,fill:O})+'</svg>',
+    4: '<svg viewBox="0 0 300 150" width="300" role="img" aria-label="Rectangle 12 m by 8 m with a 4 m by 3 m corner removed"><path d="M40 20 H232 V68 H184 V120 H40 Z" fill="'+L+'" stroke="'+V+'" stroke-width="2"/><rect x="184" y="68" width="48" height="52" fill="none" stroke="'+C+'" stroke-width="2" stroke-dasharray="5 4"/>'+t(136,14,"12 m")+t(22,74,"8 m")+t(208,138,"4 m",{fill:C})+t(252,98,"3 m",{fill:C})+'</svg>',
+    5: '<svg viewBox="0 0 300 150" width="300" role="img" aria-label="Triangle with base 10 cm and height 6 cm"><path d="M50 120 H250 L170 30 Z" fill="'+L+'" stroke="'+V+'" stroke-width="2"/><line x1="170" y1="30" x2="170" y2="120" stroke="'+O+'" stroke-width="2" stroke-dasharray="5 4"/><rect x="170" y="110" width="10" height="10" fill="none" stroke="'+O+'" stroke-width="1.5"/>'+t(150,140,"10 cm")+t(190,80,"6 cm",{fill:O,anchor:"start"})+'</svg>',
+    6: '<svg viewBox="0 0 300 120" width="300" role="img" aria-label="Bar model: boys 3 units, girls 5 units equal 40"><text x="8" y="38" font-family="Arial" font-size="14" fill="'+I+'">Boys</text><text x="8" y="82" font-family="Arial" font-size="14" fill="'+I+'">Girls</text>'+[0,1,2].map(function(i){return '<rect x="'+(60+i*34)+'" y="22" width="34" height="24" fill="'+L+'" stroke="'+V+'" stroke-width="2"/>';}).join("")+[0,1,2,3,4].map(function(i){return '<rect x="'+(60+i*34)+'" y="66" width="34" height="24" fill="#fff1e3" stroke="'+O+'" stroke-width="2"/>';}).join("")+t(260,84,"40",{weight:700,fill:O})+'</svg>'
+  };
+  var levels={
+    1:{title:"Primary 1: Number sense foundations",tag:"Build confidence with numbers, shapes and money.",list:["Numbers to 100: counting, place value, comparing","Addition and subtraction within 100","Early multiplication and division with pictures","Money: cents and dollars","Length, shapes and simple patterns","Reading picture graphs"],q:"Sam has 8 stickers. His friend gives him 5 more. How many stickers does Sam have now?",hint:"Start at 8 and count on 5 more. Which number do you land on?"},
+    2:{title:"Primary 2: Operations and first fractions",tag:"Move from counting to calculating.",list:["Numbers to 1,000","Multiplication tables of 2, 3, 4, 5 and 10","Fractions: halves, thirds, quarters","Money, length, mass and volume","Telling time","Picture graphs with scales"],q:"A ribbon is 45 cm long. Ana cuts off 18 cm. How long is the ribbon left?",hint:"Do you need to add or take away? Try regrouping the tens first."},
+    3:{title:"Primary 3: Model drawing begins",tag:"Learn to see word problems as pictures.",list:["Numbers to 10,000","Multiplication tables of 6, 7, 8 and 9","Equivalent fractions","Area and perimeter of squares and rectangles","Angles, parallel and perpendicular lines","Bar graphs and model-drawing word problems"],q:"Ben has 3 times as many marbles as Joe. They have 48 marbles altogether. How many marbles does Joe have?",hint:"Draw 1 unit for Joe and 3 units for Ben. How many units make 48?"},
+    4:{title:"Primary 4: Fractions, decimals and geometry",tag:"The year many children start to struggle. Catch gaps early.",list:["Numbers to 100,000, factors and multiples","Mixed numbers and improper fractions","Decimals up to 3 places","Area and perimeter of composite figures","Angles, symmetry and the 8-point compass","Tables, line graphs and multi-step word problems"],q:"A rectangular garden is 12 m by 8 m. A 4 m by 3 m corner is paved. What is the area of the garden left?",hint:"Find the area of the whole rectangle first. Which part do you take away?"},
+    5:{title:"Primary 5: Percentage, rate and volume",tag:"Heuristics get harder. Hints keep your child moving.",list:["Numbers to 10 million","Multiplying and dividing fractions","Percentage and rate","Area of triangles","Volume of cubes and cuboids","Angles in triangles and quadrilaterals"],q:"A triangle has a base of 10 cm and a height of 6 cm. What is its area?",hint:"A triangle is half of a rectangle with the same base and height. What is the rectangle's area?"},
+    6:{title:"Primary 6: PSLE readiness",tag:"Put every topic together for PSLE-style questions.",list:["Algebra: simple expressions and equations","Ratio and percentage change","Circles: area and circumference","Volume of solids and liquids","Pie charts and average","Multi-step PSLE-style problem sums"],q:"The ratio of boys to girls in a hall is 3 : 5. There are 40 girls. How many pupils are in the hall?",hint:"5 units stand for 40 girls. What is 1 unit worth?"}
+  };
+  var tabs=[].slice.call(document.querySelectorAll(".tab"));
+  function show(n){
+    var d=levels[n];
+    document.getElementById("lv-title").textContent=d.title;
+    document.getElementById("lv-tag").textContent=d.tag;
+    document.getElementById("lv-list").innerHTML=d.list.map(function(x){return "<li>"+x+"</li>";}).join("");
+    document.getElementById("ws-level").textContent="Primary "+n;
+    document.getElementById("ws-q").textContent=d.q;
+    document.getElementById("ws-fig").innerHTML=figs[n];
+    document.getElementById("ws-hint").textContent=d.hint;
+    tabs.forEach(function(b){var on=b.dataset.level==n;b.setAttribute("aria-selected",on);b.tabIndex=on?0:-1;});
+    document.getElementById("panel").setAttribute("aria-labelledby","tab-"+n);
+  }
+  tabs.forEach(function(b,i){
+    b.addEventListener("click",function(){show(b.dataset.level);});
+    b.addEventListener("keydown",function(e){
+      var k=e.key,j=null;
+      if(k==="ArrowRight")j=(i+1)%tabs.length; else if(k==="ArrowLeft")j=(i-1+tabs.length)%tabs.length; else if(k==="Home")j=0; else if(k==="End")j=tabs.length-1;
+      if(j!==null){e.preventDefault();tabs[j].focus();show(tabs[j].dataset.level);}
+    });
+  });
+  show(4);
+
+  /* ---------- Reviews ---------- */
+  var reviews=[
+    {t:"“My son used to give up the moment a word problem looked long. Now he asks Zai for one hint and keeps going. Homework time is calmer for both of us.”",n:"Mrs Tan",m:"Parent of a P5 pupil, Tampines",c:"#8347e0",i:"T"},
+    {t:"“I like that it won't just give the answer. My daughter has to explain her steps, which is exactly what her teacher wants.”",n:"Mr Wong",m:"Parent of a P3 pupil, Bukit Timah",c:"#ff6b6b",i:"W"},
+    {t:"“As a working mum I can't sit with her every night. The weekly report tells me which topics need attention.”",n:"Ms Nur",m:"Parent of a P4 pupil, Punggol",c:"#ff9f43",i:"N"}
+  ];
+  var dots=document.getElementById("rv-dots"), cur=0, timer;
+  reviews.forEach(function(r,i){var b=document.createElement("button");b.className="dot";b.type="button";b.setAttribute("aria-label","Review "+(i+1));b.addEventListener("click",function(){setR(i);restart();});dots.appendChild(b);});
+  function setR(i){cur=i;var r=reviews[i];document.getElementById("rv-text").textContent=r.t;document.getElementById("rv-name").textContent=r.n;document.getElementById("rv-meta").textContent=r.m;var ph=document.getElementById("rv-ph");ph.textContent=r.i;ph.style.background=r.c;[].forEach.call(dots.children,function(d,j){d.setAttribute("aria-current",j===i);});}
+  function restart(){clearInterval(timer);if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches)timer=setInterval(function(){setR((cur+1)%reviews.length);},6000);}
+  setR(0);restart();
+
+  /* ---------- Video placeholders ---------- */
+  [].forEach.call(document.querySelectorAll("[data-video]"),function(v){v.addEventListener("click",function(){var l=v.querySelector(".vlabel");l.textContent="Video placeholder: embed your video here";});});
+
+  /* ---------- Form ---------- */
+  var form=document.getElementById("form");
+  function setInvalid(id,bad){var f=document.getElementById(id).closest(".field");if(f)f.classList.toggle("invalid",bad);return !bad;}
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    var ok=true;
+    ok=setInvalid("name",!form.name.value.trim())&&ok;
+    ok=setInvalid("email",!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.value.trim()))&&ok;
+    ok=setInvalid("phone",!/^[689]\d{7}$/.test(form.phone.value.replace(/\s/g,"")))&&ok;
+    ok=setInvalid("child",!form.child.value.trim())&&ok;
+    ok=setInvalid("level",!form.level.value)&&ok;
+    var c=document.getElementById("consent").checked;document.getElementById("consent-field").classList.toggle("invalid",!c);ok=c&&ok;
+    if(!ok){var first=form.querySelector(".invalid input,.invalid select");if(first)first.focus();else document.getElementById("consent").focus();return;}
+    document.getElementById("ok-name").textContent=form.child.value.trim()+"'s parent";
+    document.getElementById("form-fields").style.display="none";
+    document.getElementById("success").style.display="block";
+    /* Hook up here: send to CRM / sign-up API and fire Meta Pixel 'Lead' event */
+  });
+
+  /* ---------- Sticky CTA ---------- */
+  var sticky=document.getElementById("sticky"), hero=document.querySelector(".hero"), su=document.getElementById("signup");
+  if("IntersectionObserver" in window){
+    var heroVis=true, suVis=false;
+    function upd(){sticky.classList.toggle("show",!heroVis&&!suVis);}
+    new IntersectionObserver(function(e){heroVis=e[0].isIntersecting;upd();}).observe(hero);
+    new IntersectionObserver(function(e){suVis=e[0].isIntersecting;upd();}).observe(su);
+  }
+})();
+</script>
+</body>
+</html>
