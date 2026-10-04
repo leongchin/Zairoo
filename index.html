@@ -275,10 +275,24 @@
 
   footer{padding:36px 0 110px;text-align:center;font-size:13px;color:var(--muted)}
 
-  /* sticky mobile cta */
-  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);padding:12px 16px;display:none;box-shadow:0 -8px 24px rgba(41,37,48,.08);transform:translateY(110%);transition:transform .25s}
+  /* sticky cta bar */
+  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:0 12px 12px;pointer-events:none;transform:translateY(140%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
   .sticky.show{transform:none}
-  .sticky .btn-yellow{width:100%;font-size:17px;padding:15px 20px;box-shadow:0 5px 0 #5b2bb0}
+  .sbar{pointer-events:auto;max-width:680px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:10px 10px 10px 12px;border-radius:20px;background:rgba(255,255,255,.92);border:1px solid rgba(131,71,224,.16);box-shadow:0 26px 60px -24px rgba(131,71,224,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+  .sthumb{flex:none;width:48px;height:48px;border-radius:13px;border:1px solid var(--line);background:var(--lavender);object-fit:cover}
+  .smeta{min-width:0;flex:1}
+  .stitle{margin:0;font-size:13.5px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-.01em}
+  .stitle em{font-style:normal;color:var(--violet)}
+  .ssub{margin:2px 0 0;display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden}
+  .ssub .st{color:#f4b400;letter-spacing:1px;font-size:12px}
+  .ssub b{color:var(--ink);font-weight:700}
+  .ssub .dot{opacity:.5}
+  .sbtn{flex:none;display:inline-flex;align-items:center;gap:8px;background:var(--violet);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:13px 18px;border-radius:999px;transition:background .15s,transform .15s}
+  .sbtn:hover{background:var(--violet-dark);transform:translateY(-1px)}
+  .sbtn:focus-visible{outline:3px solid var(--violet);outline-offset:3px}
+  .sbtn svg{width:16px;height:16px}
+  .sbtn .short{display:none}
+  @media (max-width:560px){.sbtn .long{display:none}.sbtn .short{display:inline}.sbtn{padding:12px 14px;font-size:13.5px}.sthumb{width:44px;height:44px}.sbar{gap:10px}}
 
   @media (max-width:900px){
     .hero-grid,.panel,.testi,.signup-grid{grid-template-columns:1fr}
@@ -288,7 +302,6 @@
     .trust,.steps{grid-template-columns:1fr}
     .section{padding:60px 0}
     .testi .video{aspect-ratio:16/10}
-    .sticky{display:block}
     .nav .btn-violet{display:none}
     .nav-tag{display:none}
   }
@@ -592,7 +605,16 @@
   <div class="wrap"><img class="foot-logo" src="https://www.zairoo.ai/assets/logo.svg" alt="Zairoo" width="110" height="27"><p class="foot-tag">Most AI tools give answers. We build thinkers.</p>Concept landing page by Leong Chin for portfolio purposes. Zairoo is a trademark of its respective owner; this page is not affiliated with or endorsed by Zairoo or Wild Dynasty Pte Ltd.</div>
 </footer>
 
-<div class="sticky" id="sticky"><a class="btn btn-yellow" href="#signup">Start my child learnings for free</a></div>
+<div class="sticky" id="sticky" role="region" aria-label="Start free learning">
+  <div class="sbar">
+    <img class="sthumb" src="https://www.zairoo.ai/assets/zai.svg" alt="Zai, Zairoo's learning companion" width="48" height="48">
+    <div class="smeta">
+      <p class="stitle">Most AI tools give answers. <em>We build thinkers.</em></p>
+      <p class="ssub"><span class="st" aria-hidden="true">★★★★★</span><b>4.9</b><span class="dot" aria-hidden="true">•</span><span>7 days free learning</span></p>
+    </div>
+    <a class="sbtn" href="#signup"><span class="long">Start my child learnings for free</span><span class="short">Start free</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</div>
 
 <script>
 (function(){
